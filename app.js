@@ -86,9 +86,11 @@ app.get("/api/displayFavorites", function(req, res){
 	var sqlParams = [req.query.keyword];
 	
 	conn.connect(function(err){
-		if (err) throw err;
+//		if (err) throw err;
+		console.error(err);
 		conn.query(sql, sqlParams, function(err, results) {
-			if (err) throw err;
+//			if (err) throw err;
+			console.log(error);
 			res.send(results);
 		});//query
 	});//connect
