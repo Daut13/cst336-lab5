@@ -16,6 +16,7 @@
 		<img class="image" src='<%=imageURL%>' width='200' height='200'>
 		<img class='favoriteIcon' src='img/favorite.png'width='20'>
 	</div>
+	<%- (i == imageURLs.length - 1)?'<br>':'' %>
 <% }); %>
 
 <% include partials/footer.ejs %>

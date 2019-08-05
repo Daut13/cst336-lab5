@@ -26,12 +26,10 @@ $(document).ready(function() {
 			success: function(rows, status) {
 				
 				$("#favorites").html("");
-				$("#favorites").append("<div class='imageContainer'>")
 				rows.forEach(function(row){
 					$("#favorites").append("<img class='image' src= '" + row.imageURL + "' width='150' height='150'>");
 					$("#favorites").append("<img class='favoriteIcon' src='img/favorite_on.png'width='20'>");
 				})
-				$("#favorites").append("</div>")
 			}
 				  
 		});//AJAX

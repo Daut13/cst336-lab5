@@ -68,14 +68,14 @@ app.get("/displayKeywords", async function(req, res){
 	
 	var imageURLs = await tools.getRandomImages("", 1);
 	var conn = tools.createConnection();
-	var sql = "SELECT DISTINCT keyword FROM 'favorites' ORDER BY keyword";
+	var sql = "SELECT DISTINCT keyword FROM favorites ORDER BY keyword";
 	
 	conn.connect(function(err){
 		//if (err) throw err;
-		console.error(err);
+//		console.error(err);
 		conn.query(sql, function(err, result) {
 			//if (err) throw err;
-			console.log(err);
+//			console.log(err);
 			res.render("favorites", {"rows":result, "imageURLs":imageURLs});
 		});//query
 	});//connect
@@ -101,6 +101,6 @@ app.get("/api/displayFavorites", function(req, res){
 
 // server listener
 
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen("8081", "127.0.0.1", function(){
 	console.log("Express server is running...")
 });
