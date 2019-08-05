@@ -71,9 +71,11 @@ app.get("/displayKeywords", async function(req, res){
 	var sql = "SELECT DISTINCT keyword FROM 'favorites' ORDER BY keyword";
 	
 	conn.connect(function(err){
-		if (err) throw err;
+		//if (err) throw err;
+		console.error(err);
 		conn.query(sql, function(err, result) {
-			if (err) throw err;
+			//if (err) throw err;
+			console.log(err);
 			res.render("favorites", {"rows":result, "imageURLs":imageURLs});
 		});//query
 	});//connect
@@ -90,7 +92,7 @@ app.get("/api/displayFavorites", function(req, res){
 		console.error(err);
 		conn.query(sql, sqlParams, function(err, results) {
 //			if (err) throw err;
-			console.log(error);
+			console.log(err);
 			res.send(results);
 		});//query
 	});//connect
